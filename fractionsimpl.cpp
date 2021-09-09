@@ -1,9 +1,42 @@
+
+
 #include <iostream>
 #include <cmath>
 #include <string>
 using namespace std;
 
-
+//int CountDecimal(double num, double den)
+//{
+//	string numer = to_string(num);
+//	string denon = to_string(den);
+//	int nonDecimalPartLength1;
+//	int nonDecimalPartLength2;
+//	int result1;
+//	int result2;
+//	for (int i = 0; i < numer.length(); i++)
+//	{
+//		if (numer[i] == '.')
+//		{
+//			nonDecimalPartLength1 = i;
+//		}
+//	}
+//	result1 = numer.length() - nonDecimalPartLength1 - 1;
+//	for (int i = 0; i < denon.length(); i++)
+//	{
+//		if (denon[i] == '.')
+//		{
+//			nonDecimalPartLength2 = i;
+//		}
+//	}
+//	result2 = numer.length() - nonDecimalPartLength2 - 1;
+//	if (result1 == result2)
+//	{
+//		return result1;
+//	}
+//	else {
+//		fmax(result1, result2);
+//	}
+//}
 string simplification(double num, double den)
 {
 	if (num / den == round(num / den))
@@ -12,7 +45,7 @@ string simplification(double num, double den)
 	}
 	else if (num != round(num) || den != round(den))
 	{
-		return to_string(round(num / den));
+		return to_string(num / den) + "(~" + to_string(round(num / den)) + ")";
 	}
 	else
 	{
@@ -47,6 +80,18 @@ string simplification(double num, double den)
 }
 int main()
 {
-	int a;
-	cin>>a;
+	cout << "Welcome to MathFlare's early access Fraction Simplification Calculator" << endl;
+	cout << "----------------------------------------------------------------------" << endl;
+	while (true)
+	{
+		double x, y;
+		cout << "        x/y        " << endl;
+		cout << "-------------------" << endl;
+		cout << "Enter numerator x" << endl;
+		cin >> x;
+		cout << "Enter denominator y" << endl;
+		cin >> y;
+		cout << x << "/" << y << " = " << simplification(x, y) << endl;
+		cout << "===================" << endl;
+	}
 }
